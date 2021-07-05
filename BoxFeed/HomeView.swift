@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         Text("Hello, World!")
+            .modifier(FontModifier(.regular, size: 24))
     }
 }
 

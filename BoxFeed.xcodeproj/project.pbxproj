@@ -12,6 +12,10 @@
 		73D48CDE269387EA0044A5CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CDD269387EA0044A5CC /* Preview Assets.xcassets */; };
 		73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CE1269387EA0044A5CC /* BoxFeed.xcdatamodeld */; };
 		73D48CEA269388230044A5CC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CE9269388230044A5CC /* HomeView.swift */; };
+		73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CED26938AE60044A5CC /* FontModifier.swift */; };
+		73D48CF226938C240044A5CC /* Circe-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CEF26938C240044A5CC /* Circe-ExtraBold.ttf */; };
+		73D48CF326938C240044A5CC /* Circe-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CF026938C240044A5CC /* Circe-Regular.ttf */; };
+		73D48CF426938C240044A5CC /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CF126938C240044A5CC /* Circe-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,11 @@
 		73D48CDD269387EA0044A5CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		73D48CE2269387EA0044A5CC /* BoxFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoxFeed.xcdatamodel; sourceTree = "<group>"; };
 		73D48CE9269388230044A5CC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		73D48CED26938AE60044A5CC /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		73D48CEF26938C240044A5CC /* Circe-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-ExtraBold.ttf"; sourceTree = "<group>"; };
+		73D48CF026938C240044A5CC /* Circe-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Regular.ttf"; sourceTree = "<group>"; };
+		73D48CF126938C240044A5CC /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Bold.ttf"; sourceTree = "<group>"; };
+		73D48CF526938CA50044A5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +62,9 @@
 		73D48CD5269387E50044A5CC /* BoxFeed */ = {
 			isa = PBXGroup;
 			children = (
+				73D48CF526938CA50044A5CC /* Info.plist */,
+				73D48CEC26938AA50044A5CC /* Circe */,
+				73D48CEB26938A8F0044A5CC /* Helpers */,
 				73D48CD6269387E50044A5CC /* BoxFeedApp.swift */,
 				73D48CE9269388230044A5CC /* HomeView.swift */,
 				73D48CDA269387EA0044A5CC /* Assets.xcassets */,
@@ -68,6 +80,24 @@
 				73D48CDD269387EA0044A5CC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		73D48CEB26938A8F0044A5CC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				73D48CED26938AE60044A5CC /* FontModifier.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		73D48CEC26938AA50044A5CC /* Circe */ = {
+			isa = PBXGroup;
+			children = (
+				73D48CF126938C240044A5CC /* Circe-Bold.ttf */,
+				73D48CEF26938C240044A5CC /* Circe-ExtraBold.ttf */,
+				73D48CF026938C240044A5CC /* Circe-Regular.ttf */,
+			);
+			path = Circe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +158,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73D48CF426938C240044A5CC /* Circe-Bold.ttf in Resources */,
+				73D48CF226938C240044A5CC /* Circe-ExtraBold.ttf in Resources */,
 				73D48CDE269387EA0044A5CC /* Preview Assets.xcassets in Resources */,
+				73D48CF326938C240044A5CC /* Circe-Regular.ttf in Resources */,
 				73D48CDB269387EA0044A5CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +176,7 @@
 				73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */,
 				73D48CEA269388230044A5CC /* HomeView.swift in Sources */,
 				73D48CD7269387E50044A5CC /* BoxFeedApp.swift in Sources */,
+				73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +310,10 @@
 				DEVELOPMENT_TEAM = 7S7EBZGDA6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoxFeed/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = BoxFeed;
+				INFOPLIST_KEY_CFBundleName = BoxFeed;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -306,6 +344,10 @@
 				DEVELOPMENT_TEAM = 7S7EBZGDA6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoxFeed/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = BoxFeed;
+				INFOPLIST_KEY_CFBundleName = BoxFeed;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
