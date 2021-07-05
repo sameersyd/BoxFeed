@@ -18,6 +18,7 @@
 		73D48CF426938C240044A5CC /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CF126938C240044A5CC /* Circe-Bold.ttf */; };
 		73D48CF726938DE20044A5CC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CF626938DE20044A5CC /* Models.swift */; };
 		73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CF826938E980044A5CC /* ColorExtension.swift */; };
+		73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CFA269394E00044A5CC /* ImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		73D48CF526938CA50044A5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73D48CF626938DE20044A5CC /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		73D48CF826938E980044A5CC /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		73D48CFA269394E00044A5CC /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				73D48CED26938AE60044A5CC /* FontModifier.swift */,
 				73D48CF626938DE20044A5CC /* Models.swift */,
 				73D48CF826938E980044A5CC /* ColorExtension.swift */,
+				73D48CFA269394E00044A5CC /* ImageExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */,
 				73D48CEA269388230044A5CC /* HomeView.swift in Sources */,
 				73D48CD7269387E50044A5CC /* BoxFeedApp.swift in Sources */,
+				73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */,
 				73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */,
 				73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */,
 				73D48CF726938DE20044A5CC /* Models.swift in Sources */,
