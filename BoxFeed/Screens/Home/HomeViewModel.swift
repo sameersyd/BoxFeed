@@ -9,5 +9,7 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
+    @Published var selection = 0
+    
     init() { }
 }

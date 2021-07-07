@@ -16,12 +16,18 @@ struct HomeView: View {
             ZStack {
                 Color.primary_color.edgesIgnoringSafeArea(.all)
                 
-                VStack {
-                    HStack {
-                        Text(AppConfig.APP_NAME)
+                VStack(spacing: 0) {
+                    HStack(alignment: .center) {
+                        Text(AppConfig.APP_NAME).foregroundColor(.main_color)
                             .modifier(FontModifier(.bold, size: 32))
                         Spacer()
+                        
+                        Image.bookmark.resizable().renderingMode(.template)
+                            .foregroundColor(.black).frame(width: 22, height: 22)
                     }.padding(.horizontal, 16)
+                    
+                    NewsSelectorView(selection: $viewModel.selection)
+                        .padding(.top, 24)
                     
                     Spacer()
                 }
