@@ -19,7 +19,7 @@ struct NewsSelectorView: View {
                     VStack(spacing: 8) {
                         Text(sources[index].name)
                             .foregroundColor(Color.text_primary_color)
-                            .modifier(FontModifier(.bold, size: 16))
+                            .modifier(FontModifier(.bold, size: 14))
                             .layoutPriority(1).fixedSize(horizontal: true, vertical: false)
                         if selection == index {
                             Rectangle().frame(height: 2)

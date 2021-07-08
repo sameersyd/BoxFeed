@@ -12,7 +12,7 @@ struct NewsModelView: View {
     var model: NewsModel
     
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
+        HStack(alignment: .center, spacing: 16) {
             AsyncImage(url: model.urlToImage) { image in
                 image.resizable().scaledToFill()
             } placeholder: {
@@ -20,21 +20,22 @@ struct NewsModelView: View {
                     Color.gray.opacity(0.1)
                     ActivityIndicator(isAnimating: true)
                 }
-            }.frame(width: 100, height: 80).clipped()
+            }.frame(width: 100, height: 70).clipped().cornerRadius(4)
             
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text(model.title).lineLimit(2)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.text_primary_color)
-                    .modifier(FontModifier(.bold, size: 16))
-                HStack(alignment: .center) {
-                    newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yyyy"))
-                    Spacer()
+                    .modifier(FontModifier(.bold, size: 14))
+                HStack(alignment: .center, spacing: 12) {
+                    newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yy"))
                     if let time = model.readTime {
-                        newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time) mins read")
+                        newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time) m")
                     }
                 }
             }
+            
+            Spacer()
         }
     }
     
@@ -43,7 +44,8 @@ struct NewsModelView: View {
             image.resizable()
                 .renderingMode(.template)
                 .foregroundColor(.text_primary_color)
-                .frame(width: 18, height: 18)
+                .frame(width: 16, height: 16)
+                .offset(x: 0, y: -1)
             Text(text).lineLimit(1)
                 .foregroundColor(.text_primary_color)
                 .modifier(FontModifier(.bold, size: 12))

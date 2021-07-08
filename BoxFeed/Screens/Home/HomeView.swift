@@ -18,7 +18,7 @@ struct HomeView: View {
                 
                 VStack(spacing: 0) {
                     HStack(alignment: .center) {
-                        Text(AppConfig.APP_NAME).foregroundColor(.main_color)
+                        Text("Breaking News").foregroundColor(.main_color)
                             .modifier(FontModifier(.bold, size: 32))
                         Spacer()
                         
@@ -32,13 +32,23 @@ struct HomeView: View {
                     List {
                         ForEach(0..<viewModel.news.count, id: \.self) { i in
                             NewsModelView(model: viewModel.news[i])
+                                .padding(.vertical, 2)
+                                .padding(.top, i == 0 ? 10 : 0)
                                 .listRowSeparator(.hidden)
                         }
+                        .swipeActions {
+                            Button(action: {  }) {
+                                Image(systemName: "bookmark")
+                            }.tint(.main_color)
+                        }
                     }
-                    .padding(.top, 16)
+                    .refreshable {
+                        await viewModel.fetchNews()
+                    }
                     
                     Spacer()
-                }
+                    
+                }.edgesIgnoringSafeArea(.bottom)
             }.navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
