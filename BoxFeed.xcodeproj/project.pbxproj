@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7306929126979531008482DE /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7306929026979531008482DE /* NewsData.swift */; };
 		732E1D59269620970085F136 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D58269620970085F136 /* Config.swift */; };
 		732E1D5F269621C10085F136 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D5E269621C10085F136 /* HomeViewModel.swift */; };
 		732E1D612696222A0085F136 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D602696222A0085F136 /* HomeView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7306929026979531008482DE /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		732E1D58269620970085F136 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		732E1D5E269621C10085F136 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		732E1D602696222A0085F136 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				73D48CEB26938A8F0044A5CC /* Helpers */,
 				73D48CD6269387E50044A5CC /* BoxFeedApp.swift */,
 				732E1D58269620970085F136 /* Config.swift */,
+				7306929026979531008482DE /* NewsData.swift */,
 				73D48CDA269387EA0044A5CC /* Assets.xcassets */,
 				73D48CE1269387EA0044A5CC /* BoxFeed.xcdatamodeld */,
 				73D48CDC269387EA0044A5CC /* Preview Content */,
@@ -226,6 +229,7 @@
 				73D48CD7269387E50044A5CC /* BoxFeedApp.swift in Sources */,
 				73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */,
 				73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */,
+				7306929126979531008482DE /* NewsData.swift in Sources */,
 				73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */,
 				732E1D65269625DB0085F136 /* NewsSelectorView.swift in Sources */,
 				73D48CF726938DE20044A5CC /* Models.swift in Sources */,
@@ -371,7 +375,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -405,7 +409,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

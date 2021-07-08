@@ -7,9 +7,18 @@
 
 import Foundation
 
+@MainActor
 class HomeViewModel: ObservableObject {
     
     @Published var selection = 0
+    @Published var news = [NewsModel]()
     
-    init() { }
+    init() {
+        async { await fetchNews() }
+    }
+    
+    func fetchNews() async {
+        let data = await NewsData.getNewsData(Sources.allCases[selection])
+        self.news = data
+    }
 }
