@@ -11,9 +11,9 @@ import Foundation
 struct NewsData {
     
     static private let source = NewsSource(id: .bbcNews, name: Sources.bbcNews.name)
-    static private let author = ""
-    static private let title = ""
-    static private let description = ""
+    static private let author = "Caroline Vakil"
+    static private let title = "FAA fines airline passenger more than $10K for refusing to wear mask | TheHill - The Hill"
+    static private let description = "The Federal Aviation Administration (FAA)"
     static private let url = "https://www.iphoneincanada.ca/news/new-brunswick-electric-vehicle-rebate/"
     static private let imageURLs = [
         "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/07/27/23/trump-scranton.jpg?width=1200&auto=webp&quality=75",

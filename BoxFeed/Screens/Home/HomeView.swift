@@ -29,10 +29,17 @@ struct HomeView: View {
                     NewsSelectorView(selection: $viewModel.selection)
                         .padding(.top, 24)
                     
+                    List {
+                        ForEach(0..<viewModel.news.count, id: \.self) { i in
+                            NewsModelView(model: viewModel.news[i])
+                                .listRowSeparator(.hidden)
+                        }
+                    }
+                    .padding(.top, 16)
+                    
                     Spacer()
                 }
-            }
-            .navigationBarHidden(true)
+            }.navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)

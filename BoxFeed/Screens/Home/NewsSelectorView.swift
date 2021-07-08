@@ -32,6 +32,6 @@ struct NewsSelectorView: View {
                     }
                 }
             }.padding(.horizontal, 12)
-        }.animation(.spring())
+        }
     }
 }
