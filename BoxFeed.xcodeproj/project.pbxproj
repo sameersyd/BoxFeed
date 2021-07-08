@@ -10,7 +10,6 @@
 		732E1D59269620970085F136 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D58269620970085F136 /* Config.swift */; };
 		732E1D5F269621C10085F136 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D5E269621C10085F136 /* HomeViewModel.swift */; };
 		732E1D612696222A0085F136 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D602696222A0085F136 /* HomeView.swift */; };
-		732E1D63269624E30085F136 /* NewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D62269624E30085F136 /* NewsSource.swift */; };
 		732E1D65269625DB0085F136 /* NewsSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D64269625DB0085F136 /* NewsSelectorView.swift */; };
 		73D48CD7269387E50044A5CC /* BoxFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CD6269387E50044A5CC /* BoxFeedApp.swift */; };
 		73D48CDB269387EA0044A5CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73D48CDA269387EA0044A5CC /* Assets.xcassets */; };
@@ -30,7 +29,6 @@
 		732E1D58269620970085F136 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		732E1D5E269621C10085F136 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		732E1D602696222A0085F136 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		732E1D62269624E30085F136 /* NewsSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSource.swift; sourceTree = "<group>"; };
 		732E1D64269625DB0085F136 /* NewsSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSelectorView.swift; sourceTree = "<group>"; };
 		73D48CD3269387E50044A5CC /* BoxFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D48CD6269387E50044A5CC /* BoxFeedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFeedApp.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				73D48CEB26938A8F0044A5CC /* Helpers */,
 				73D48CD6269387E50044A5CC /* BoxFeedApp.swift */,
 				732E1D58269620970085F136 /* Config.swift */,
-				732E1D62269624E30085F136 /* NewsSource.swift */,
 				73D48CDA269387EA0044A5CC /* Assets.xcassets */,
 				73D48CE1269387EA0044A5CC /* BoxFeed.xcdatamodeld */,
 				73D48CDC269387EA0044A5CC /* Preview Content */,
@@ -222,7 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73D48CFE269397C10044A5CC /* NewsModel.swift in Sources */,
-				732E1D63269624E30085F136 /* NewsSource.swift in Sources */,
 				73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */,
 				732E1D59269620970085F136 /* Config.swift in Sources */,
 				732E1D612696222A0085F136 /* HomeView.swift in Sources */,

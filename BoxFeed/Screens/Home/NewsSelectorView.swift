@@ -10,7 +10,7 @@ import SwiftUI
 struct NewsSelectorView: View {
     
     @Binding var selection: Int
-    private let sources = NewsSource.allCases
+    private let sources = Sources.allCases
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
