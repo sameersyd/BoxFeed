@@ -27,6 +27,7 @@
 		73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CF826938E980044A5CC /* ColorExtension.swift */; };
 		73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CFA269394E00044A5CC /* ImageExtension.swift */; };
 		73D48CFE269397C10044A5CC /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D48CFD269397C10044A5CC /* NewsModel.swift */; };
+		73FC2DBC269884BA00373EB3 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FC2DBB269884BA00373EB3 /* ArticleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		73D48CF826938E980044A5CC /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		73D48CFA269394E00044A5CC /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		73D48CFD269397C10044A5CC /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		73FC2DBB269884BA00373EB3 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		732E1D5A269621770085F136 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				73FC2DBA2698848800373EB3 /* Article */,
 				732E1D5B269621960085F136 /* Home */,
 			);
 			path = Screens;
@@ -173,6 +176,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		73FC2DBA2698848800373EB3 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				73FC2DBB269884BA00373EB3 /* ArticleView.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,6 +268,7 @@
 				73D48CD7269387E50044A5CC /* BoxFeedApp.swift in Sources */,
 				73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */,
 				73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */,
+				73FC2DBC269884BA00373EB3 /* ArticleView.swift in Sources */,
 				7306929126979531008482DE /* NewsData.swift in Sources */,
 				73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */,
 				732E1D65269625DB0085F136 /* NewsSelectorView.swift in Sources */,

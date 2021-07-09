@@ -17,24 +17,19 @@ struct HomeView: View {
                 Color.primary_color.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 0) {
-                    HStack(alignment: .center) {
-                        Text("Breaking News").foregroundColor(.main_color)
-                            .modifier(FontModifier(.bold, size: 32))
-                        Spacer()
-                        
-                        Image.bookmark.resizable().renderingMode(.template)
-                            .foregroundColor(.black).frame(width: 22, height: 22)
-                    }.padding(.horizontal, 16)
+                    HeaderView
                     
                     NewsSelectorView(selection: $viewModel.selection)
                         .padding(.top, 24)
                     
                     List {
                         ForEach(0..<viewModel.news.count, id: \.self) { i in
-                            NewsModelView(model: viewModel.news[i])
-                                .padding(.vertical, 2)
-                                .padding(.top, i == 0 ? 10 : 0)
-                                .listRowSeparator(.hidden)
+                            Button(action: { viewModel.selectArticle(index: i) }) {
+                                NewsModelView(model: viewModel.news[i])
+                                    .padding(.vertical, 4)
+                                    .padding(.top, i == 0 ? 12 : 0)
+                                    .listRowSeparator(.hidden)
+                            }
                         }
                         .swipeActions {
                             Button(action: {  }) {
@@ -47,12 +42,30 @@ struct HomeView: View {
                     }
                     
                     Spacer()
-                    
-                }.edgesIgnoringSafeArea(.bottom)
-            }.navigationBarHidden(true)
+                }
+                .edgesIgnoringSafeArea(.bottom)
+                .fullScreenCover(isPresented: $viewModel.showArticle,
+                                 onDismiss: { viewModel.selectedArticle = nil }) {
+                    if let article = viewModel.selectedArticle {
+                        ArticleView(model: article)
+                    }
+                }
+            }
+            .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+    }
+    
+    private var HeaderView: some View {
+        HStack(alignment: .center) {
+            Text("Breaking News").foregroundColor(.main_color)
+                .modifier(FontModifier(.bold, size: 32))
+            Spacer()
+            
+            Image.bookmark.resizable().renderingMode(.template)
+                .foregroundColor(.black).frame(width: 22, height: 22)
+        }.padding(.horizontal, 16)
     }
 }

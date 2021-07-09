@@ -20,7 +20,7 @@ struct NewsModelView: View {
                     Color.gray.opacity(0.1)
                     ActivityIndicator(isAnimating: true)
                 }
-            }.frame(width: 100, height: 70).clipped().cornerRadius(4)
+            }.frame(width: 100, height: 80).clipped().cornerRadius(4)
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(model.title).lineLimit(2)
@@ -30,7 +30,7 @@ struct NewsModelView: View {
                 HStack(alignment: .center, spacing: 12) {
                     newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yy"))
                     if let time = model.readTime {
-                        newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time) m")
+                        newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time)m")
                     }
                 }
             }

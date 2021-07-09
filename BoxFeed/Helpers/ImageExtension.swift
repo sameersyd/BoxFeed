@@ -11,7 +11,7 @@ extension Image {
     
     // Icons
     static let article = Image("article")
-    static let back_arrow = Image("back-arrow")
+    static let x = Image("x")
     static let calender = Image("calender")
     static let clock = Image("clock")
     static let bookmark = Image("bookmark")
