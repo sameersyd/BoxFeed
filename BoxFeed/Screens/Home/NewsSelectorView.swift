@@ -18,7 +18,7 @@ struct NewsSelectorView: View {
                 ForEach(0..<sources.count) { index in
                     VStack(spacing: 8) {
                         Text(sources[index].name)
-                            .foregroundColor(Color.text_primary_color)
+                            .foregroundColor(Color.text_primary)
                             .modifier(FontModifier(.bold, size: 14))
                             .layoutPriority(1).fixedSize(horizontal: true, vertical: false)
                         if selection == index {

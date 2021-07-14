@@ -14,9 +14,12 @@ struct ArticleView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                HeaderView
-                Spacer()
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 32) {
+                    HeaderView(height: 400).frame(height: 400)
+                    BodyView.padding(.horizontal, 18)
+                    Spacer()
+                }
             }
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
@@ -28,12 +31,40 @@ struct ArticleView: View {
 }
 
 
+// Body View
+extension ArticleView {
+    
+    private var BodyView: some View {
+        VStack(spacing: 16) {
+            AuthorView
+            Text(model.content)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.text_primary.opacity(0.7))
+                .modifier(FontModifier(.regular, size: 16))
+                .frame(maxWidth: .infinity)
+        }
+    }
+    
+    private var AuthorView: some View {
+        HStack(alignment: .center) {
+            Text(model.author).foregroundColor(.text_primary)
+                .modifier(FontModifier(.bold, size: 16))
+            Spacer()
+            Button(action: {  }) {
+                Image.article.resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(.text_primary)
+                    .frame(width: 22, height: 22)
+            }
+        }
+    }
+}
+
+
 // Header View
 extension ArticleView {
     
-    @ViewBuilder
-    private var HeaderView: some View {
-        let height: CGFloat = 400
+    private func HeaderView(height: CGFloat) -> some View {
         GeometryReader { geo in
             ZStack {
                 AsyncImage(url: model.urlToImage) { image in
@@ -52,11 +83,15 @@ extension ArticleView {
                     HStack(alignment: .center) {
                         Button(action: { presentationMode.wrappedValue.dismiss() }) {
                             Image.x.resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(.white)
                                 .frame(width: 26, height: 26)
                         }
                         Spacer()
                         Button(action: {  }) {
                             Image.bookmark_filled.resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(.white)
                                 .frame(width: 20, height: 20)
                         }
                     }.padding(.horizontal, 20).padding(.vertical, 60)
@@ -67,7 +102,7 @@ extension ArticleView {
                         .padding(.horizontal, 20).padding(.bottom, 16)
                     
                 }.frame(width: geo.size.width, height: height)
-            }
+            }.frame(width: geo.size.width, height: height)
         }
     }
     
@@ -97,6 +132,8 @@ extension ArticleView {
                 Spacer()
                 HStack(alignment: .bottom, spacing: 8) {
                     Image.calender.resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.white)
                         .frame(width: 16, height: 16)
                     Text(model.publishedAt.format("MMM. dd, yyyy"))
                         .foregroundColor(.white)

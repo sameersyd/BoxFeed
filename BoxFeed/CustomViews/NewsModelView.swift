@@ -25,7 +25,7 @@ struct NewsModelView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(model.title).lineLimit(2)
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(.text_primary_color)
+                    .foregroundColor(.text_primary)
                     .modifier(FontModifier(.bold, size: 14))
                 HStack(alignment: .center, spacing: 12) {
                     newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yy"))
@@ -43,11 +43,11 @@ struct NewsModelView: View {
         HStack(alignment: .center, spacing: 8) {
             image.resizable()
                 .renderingMode(.template)
-                .foregroundColor(.text_primary_color)
+                .foregroundColor(.text_primary)
                 .frame(width: 16, height: 16)
                 .offset(x: 0, y: -1)
             Text(text).lineLimit(1)
-                .foregroundColor(.text_primary_color)
+                .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 12))
         }
     }

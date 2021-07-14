@@ -11,7 +11,7 @@ extension Color {
     
     static let main_color = Color.black
     static let primary_color = Color.white
-    static let text_primary_color = Color.black
+    static let text_primary = Color.black
     
     init(hex: String, alpha: Double = 1) {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
