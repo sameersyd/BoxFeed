@@ -25,6 +25,11 @@ struct ArticleView: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
+}
+
+
+// Header View
+extension ArticleView {
     
     @ViewBuilder
     private var HeaderView: some View {
@@ -40,7 +45,10 @@ struct ArticleView: View {
                     }
                 }.frame(width: geo.size.width, height: height).clipped()
                 
-                VStack {
+                Header_Gradient
+                    .frame(width: geo.size.width, height: height)
+                
+                VStack(spacing: 0) {
                     HStack(alignment: .center) {
                         Button(action: { presentationMode.wrappedValue.dismiss() }) {
                             Image.x.resizable()
@@ -51,10 +59,51 @@ struct ArticleView: View {
                             Image.bookmark_filled.resizable()
                                 .frame(width: 20, height: 20)
                         }
-                    }.padding(.horizontal, 25).padding(.vertical, 60)
+                    }.padding(.horizontal, 20).padding(.vertical, 60)
+                    
                     Spacer()
-                }.frame(height: height)
+                    
+                    Header_DataView
+                        .padding(.horizontal, 20).padding(.bottom, 16)
+                    
+                }.frame(width: geo.size.width, height: height)
             }
+        }
+    }
+    
+    private var Header_Gradient: some View {
+        GeometryReader { geo in
+            VStack {
+                Spacer()
+                LinearGradient(
+                    gradient: Gradient(colors: [.black, .black.opacity(0)]),
+                    startPoint: .bottom, endPoint: .top
+                ).frame(height: (geo.size.height / 100) * 50)
+            }
+        }
+    }
+    
+    private var Header_DataView: some View {
+        VStack(spacing: 20) {
+            Text(model.title).lineLimit(3)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .modifier(FontModifier(.bold, size: 32))
+                .frame(maxWidth: .infinity)
+            
+            HStack(alignment: .center) {
+                Text(model.source.name).foregroundColor(.white)
+                    .modifier(FontModifier(.extraBold, size: 12))
+                Spacer()
+                HStack(alignment: .bottom, spacing: 8) {
+                    Image.calender.resizable()
+                        .frame(width: 16, height: 16)
+                    Text(model.publishedAt.format("MMM. dd, yyyy"))
+                        .foregroundColor(.white)
+                        .modifier(FontModifier(.bold, size: 12))
+                        .padding(.bottom, -2)
+                }
+            }.padding(.horizontal, 4)
         }
     }
 }
