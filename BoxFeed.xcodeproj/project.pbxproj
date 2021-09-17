@@ -75,6 +75,24 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		731DB92B26F43FAB004D9B27 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73D48CEC26938AA50044A5CC /* Circe */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		731DB92C26F43FCC004D9B27 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				73D48CEB26938A8F0044A5CC /* Helpers */,
+				730692922697A6BD008482DE /* CustomViews */,
+				73D48CFC269396600044A5CC /* Models */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		732E1D5A269621770085F136 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +139,10 @@
 		73D48CD5269387E50044A5CC /* BoxFeed */ = {
 			isa = PBXGroup;
 			children = (
-				730692922697A6BD008482DE /* CustomViews */,
+				731DB92C26F43FCC004D9B27 /* Library */,
+				731DB92B26F43FAB004D9B27 /* Resources */,
 				732E1D5A269621770085F136 /* Screens */,
 				73D48CF526938CA50044A5CC /* Info.plist */,
-				73D48CEC26938AA50044A5CC /* Circe */,
-				73D48CFC269396600044A5CC /* Models */,
-				73D48CEB26938A8F0044A5CC /* Helpers */,
 				73D48CD6269387E50044A5CC /* BoxFeedApp.swift */,
 				732E1D58269620970085F136 /* Config.swift */,
 				7306929026979531008482DE /* NewsData.swift */,
