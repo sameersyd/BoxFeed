@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct NewsSource: Codable {
-    var id: Sources
-    var name: String
+struct NewsDataModel: Codable {
+    var status: String?
+    var totalResults: Int?
+    var articles: [NewsModel]?
 }
 
 struct NewsModel: Codable {
     
-    var source: NewsSource
+    var id: Sources?
     
     var author: String
     var title: String
@@ -23,7 +24,7 @@ struct NewsModel: Codable {
     var url: URL?
     var urlToImage: URL?
     
-    var publishedAt: Date
+    var publishedAt: String
     var content: String
     
     var readTime: Int?

@@ -127,7 +127,7 @@ extension ArticleView {
                 .frame(maxWidth: .infinity)
             
             HStack(alignment: .center) {
-                Text(model.source.name).foregroundColor(.white)
+                Text(model.id?.name ?? "Unknown").foregroundColor(.white)
                     .modifier(FontModifier(.extraBold, size: 12))
                 Spacer()
                 HStack(alignment: .bottom, spacing: 8) {
@@ -135,7 +135,9 @@ extension ArticleView {
                         .renderingMode(.template)
                         .foregroundColor(.white)
                         .frame(width: 16, height: 16)
-                    Text(model.publishedAt.format("MMM. dd, yyyy"))
+                    #warning("Fix date")
+//                    Text(model.publishedAt.format("MMM. dd, yyyy"))
+                    Text("Apr. 21, 2021")
                         .foregroundColor(.white)
                         .modifier(FontModifier(.bold, size: 12))
                         .padding(.bottom, -2)

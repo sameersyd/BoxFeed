@@ -28,7 +28,9 @@ struct NewsModelView: View {
                     .foregroundColor(.text_primary)
                     .modifier(FontModifier(.bold, size: 14))
                 HStack(alignment: .center, spacing: 12) {
-                    newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yy"))
+                    #warning("Fix date")
+//                    newsData(image: Image.calender, text: model.publishedAt.format("MMM. dd, yy"))
+                    newsData(image: Image.calender, text: "Apr. 21, 2021")
                     if let time = model.readTime {
                         newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time)m")
                     }

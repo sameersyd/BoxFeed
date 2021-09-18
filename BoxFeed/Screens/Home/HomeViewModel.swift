@@ -10,19 +10,26 @@ import Foundation
 @MainActor
 class HomeViewModel: ObservableObject {
     
-    @Published var selection = 0
+    @Published var selection = 0 {
+        didSet {
+            async { await fetchNews() }
+        }
+    }
     @Published var news = [NewsModel]()
     
     @Published var showArticle = false
     @Published var selectedArticle: NewsModel? = nil
+    
+    let service = NewsService()
     
     init() {
         async { await fetchNews() }
     }
     
     func fetchNews() async {
-        let data = await NewsData.getNewsData(Sources.allCases[selection])
-        self.news = data
+        if let articles = try? await service.fetchNews(Sources.allCases[selection]) {
+            self.news = articles
+        }
     }
     
     func selectArticle(index: Int) {
