@@ -17,20 +17,20 @@ struct NewsModel: Decodable {
     
     var id: Sources?
     
-    var author: String
-    var title: String
-    var description: String
+    var author: String?
+    var title: String?
+    var description: String?
     
     var url: URL?
     var urlToImage: URL?
     
-    var publishedAt: String
-    var content: String
+    var publishedAt: String?
+    var content: String?
     
     var readTime: Int?
     
-    var publishedDate: String {
-        guard let date = publishedAt.convertIntoDate() else { return "" }
+    var publishedDate: String? {
+        guard let date = publishedAt?.convertIntoDate() else { return "" }
         return date.format("MMM. dd, yyyy")
     }
 }

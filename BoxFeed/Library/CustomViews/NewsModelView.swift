@@ -23,12 +23,12 @@ struct NewsModelView: View {
             }.frame(width: 100, height: 80).clipped().cornerRadius(4)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(model.title).lineLimit(2)
+                Text(model.title ?? "").lineLimit(2)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.text_primary)
                     .modifier(FontModifier(.bold, size: 14))
                 HStack(alignment: .center, spacing: 12) {
-                    newsData(image: Image.calender, text: model.publishedDate)
+                    newsData(image: Image.calender, text: model.publishedDate ?? "")
                     if let time = model.readTime {
                         newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time)m")
                     }

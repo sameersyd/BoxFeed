@@ -5,7 +5,7 @@
 //  Created by Sameer Nawaz on 07/07/21.
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
 class HomeViewModel: ObservableObject {
@@ -28,7 +28,9 @@ class HomeViewModel: ObservableObject {
     
     func fetchNews() async {
         if let articles = try? await service.fetchNews(Sources.allCases[selection]) {
-            self.news = articles
+            withAnimation {
+                self.news = articles
+            }
         }
     }
     
