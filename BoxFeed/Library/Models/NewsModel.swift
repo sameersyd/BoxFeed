@@ -7,31 +7,37 @@
 
 import Foundation
 
-struct NewsSource: Codable {
-    var id: Sources
-    var name: String
+struct NewsDataModel: Decodable {
+    var status: String?
+    var totalResults: Int?
+    var articles: [NewsModel]?
 }
 
-struct NewsModel: Codable {
+struct NewsModel: Decodable {
     
-    var source: NewsSource
+    var id: Sources?
     
-    var author: String
-    var title: String
-    var description: String
+    var author: String?
+    var title: String?
+    var description: String?
     
     var url: URL?
     var urlToImage: URL?
     
-    var publishedAt: Date
-    var content: String
+    var publishedAt: String?
+    var content: String?
     
     var readTime: Int?
+    
+    var publishedDate: String? {
+        guard let date = publishedAt?.convertIntoDate() else { return "" }
+        return date.format("MMM. dd, yyyy")
+    }
 }
 
 // --------
 
-enum Sources: String, Codable, CaseIterable {
+enum Sources: String, Decodable, CaseIterable {
     
     case bbcNews = "bbc-news"
     case bbcSport = "bbc-sport"
