@@ -10,7 +10,7 @@ import SwiftUI
 struct ArticleView: View {
     
     @Environment(\.dismiss) var dismiss
-    var model: NewsModel
+    @StateObject var viewModel: ArticleViewModel
     
     var body: some View {
         NavigationView {
@@ -37,7 +37,7 @@ extension ArticleView {
     private var BodyView: some View {
         VStack(spacing: 16) {
             AuthorView
-            Text(model.content ?? "")
+            Text(viewModel.model.content ?? "")
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.text_primary.opacity(0.7))
                 .modifier(FontModifier(.regular, size: 16))
@@ -47,7 +47,7 @@ extension ArticleView {
     
     private var AuthorView: some View {
         HStack(alignment: .center) {
-            Text(model.author ?? "")
+            Text(viewModel.model.author ?? "")
                 .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 16))
             Spacer()
@@ -68,7 +68,7 @@ extension ArticleView {
     private func HeaderView(height: CGFloat) -> some View {
         GeometryReader { geo in
             ZStack {
-                AsyncImage(url: model.urlToImage) { image in
+                AsyncImage(url: viewModel.model.urlToImage) { image in
                     image.resizable().scaledToFill()
                 } placeholder: {
                     ZStack {
@@ -121,14 +121,14 @@ extension ArticleView {
     
     private var Header_DataView: some View {
         VStack(spacing: 20) {
-            Text(model.title ?? "").lineLimit(3)
+            Text(viewModel.model.title ?? "").lineLimit(3)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .modifier(FontModifier(.bold, size: 32))
                 .frame(maxWidth: .infinity)
             
             HStack(alignment: .center) {
-                Text(model.id?.name ?? "Unknown").foregroundColor(.white)
+                Text(viewModel.model.id?.name ?? "Unknown").foregroundColor(.white)
                     .modifier(FontModifier(.extraBold, size: 12))
                 Spacer()
                 HStack(alignment: .bottom, spacing: 8) {
@@ -136,7 +136,7 @@ extension ArticleView {
                         .renderingMode(.template)
                         .foregroundColor(.white)
                         .frame(width: 16, height: 16)
-                    Text(model.publishedDate ?? "")
+                    Text(viewModel.model.publishedDate ?? "")
                         .foregroundColor(.white)
                         .modifier(FontModifier(.bold, size: 12))
                         .padding(.bottom, -2)

@@ -53,7 +53,7 @@ struct HomeView: View {
                 .fullScreenCover(isPresented: $viewModel.showArticle,
                                  onDismiss: { viewModel.selectedArticle = nil }) {
                     if let article = viewModel.selectedArticle {
-                        ArticleView(model: article)
+                        ArticleView(viewModel: ArticleViewModel(model: article))
                     }
                 }
                 .fullScreenCover(isPresented: $viewModel.openBookmarks) {

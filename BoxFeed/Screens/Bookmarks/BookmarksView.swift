@@ -45,7 +45,7 @@ struct BookmarksView: View {
                 .fullScreenCover(isPresented: $viewModel.showArticle,
                                  onDismiss: { viewModel.selectedArticle = nil }) {
                     if let article = viewModel.selectedArticle {
-                        ArticleView(model: viewModel.getNewsModel(article))
+                        ArticleView(viewModel: ArticleViewModel(model: viewModel.getNewsModel(article)))
                     }
                 }
             }
