@@ -21,7 +21,7 @@ struct HomeView: View {
                 Color.primary_color.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 0) {
-                    HeaderView
+                    headerView
                     NewsSelectorView(selection: $viewModel.selection)
                         .padding(.top, 24)
                     
@@ -56,6 +56,9 @@ struct HomeView: View {
                         ArticleView(model: article)
                     }
                 }
+                .fullScreenCover(isPresented: $viewModel.openBookmarks) {
+                    BookmarksView()
+                }
             }
             .navigationBarHidden(true)
         }
@@ -64,12 +67,12 @@ struct HomeView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    private var HeaderView: some View {
+    private var headerView: some View {
         HStack(alignment: .center) {
             Text("Breaking News").foregroundColor(.main_color)
                 .modifier(FontModifier(.bold, size: 32))
             Spacer()
-            Button(action: {  }) {
+            Button(action: { viewModel.openBookmarks = true }) {
                 Image.bookmark.resizable()
                     .renderingMode(.template)
                     .foregroundColor(.black)

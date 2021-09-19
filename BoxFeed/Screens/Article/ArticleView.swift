@@ -82,18 +82,18 @@ extension ArticleView {
                 
                 VStack(spacing: 0) {
                     HStack(alignment: .center) {
-                        Button(action: { dismiss() }) {
-                            Image.x.resizable()
-                                .renderingMode(.template)
-                                .foregroundColor(.white)
-                                .frame(width: 26, height: 26)
-                        }
-                        Spacer()
                         Button(action: {  }) {
                             Image.bookmark_filled.resizable()
                                 .renderingMode(.template)
                                 .foregroundColor(.white)
                                 .frame(width: 20, height: 20)
+                        }
+                        Spacer()
+                        Button(action: { dismiss() }) {
+                            Image.x.resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(.white)
+                                .frame(width: 26, height: 26)
                         }
                     }.padding(.horizontal, 20).padding(.vertical, 60)
                     

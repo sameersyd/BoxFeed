@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		73056CE726F6BF4E00DD94BA /* ArticleCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73056CE626F6BF4E00DD94BA /* ArticleCD.swift */; };
+		73056CEA26F6D61300DD94BA /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73056CE926F6D61300DD94BA /* BookmarksView.swift */; };
+		73056CEC26F6D63400DD94BA /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73056CEB26F6D63400DD94BA /* BookmarksViewModel.swift */; };
 		732E1D59269620970085F136 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D58269620970085F136 /* Config.swift */; };
 		732E1D5F269621C10085F136 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D5E269621C10085F136 /* HomeViewModel.swift */; };
 		732E1D612696222A0085F136 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D602696222A0085F136 /* HomeView.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		73056CE626F6BF4E00DD94BA /* ArticleCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCD.swift; sourceTree = "<group>"; };
+		73056CE926F6D61300DD94BA /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		73056CEB26F6D63400DD94BA /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		732E1D58269620970085F136 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		732E1D5E269621C10085F136 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		732E1D602696222A0085F136 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73056CE826F6D60200DD94BA /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				73056CE926F6D61300DD94BA /* BookmarksView.swift */,
+				73056CEB26F6D63400DD94BA /* BookmarksViewModel.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		730692922697A6BD008482DE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 		732E1D5A269621770085F136 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				73056CE826F6D60200DD94BA /* Bookmarks */,
 				73FC2DBA2698848800373EB3 /* Article */,
 				732E1D5B269621960085F136 /* Home */,
 			);
@@ -296,6 +310,7 @@
 				736C8EE726F5B8ED0053CC8F /* Extensions.swift in Sources */,
 				736C8EE326F5B34A0053CC8F /* NewsService.swift in Sources */,
 				73056CE726F6BF4E00DD94BA /* ArticleCD.swift in Sources */,
+				73056CEA26F6D61300DD94BA /* BookmarksView.swift in Sources */,
 				737FE37E2697B0BF00A33EB7 /* ActivityIndicator.swift in Sources */,
 				73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */,
 				732E1D59269620970085F136 /* Config.swift in Sources */,
@@ -306,6 +321,7 @@
 				73D48CFB269394E00044A5CC /* ImageExtension.swift in Sources */,
 				73D48CF926938E980044A5CC /* ColorExtension.swift in Sources */,
 				73FC2DBC269884BA00373EB3 /* ArticleView.swift in Sources */,
+				73056CEC26F6D63400DD94BA /* BookmarksViewModel.swift in Sources */,
 				73D48CEE26938AE60044A5CC /* FontModifier.swift in Sources */,
 				732E1D65269625DB0085F136 /* NewsSelectorView.swift in Sources */,
 				73D48CF726938DE20044A5CC /* Models.swift in Sources */,

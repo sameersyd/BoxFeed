@@ -16,8 +16,9 @@ class HomeViewModel: ObservableObject {
             async { await fetchNews() }
         }
     }
-    @Published var news = [NewsModel]()
+    @Published private(set) var news = [NewsModel]()
     
+    @Published var openBookmarks = false
     @Published var showArticle = false
     @Published var selectedArticle: NewsModel? = nil
     
