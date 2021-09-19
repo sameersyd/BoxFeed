@@ -20,8 +20,6 @@ final class NewsService {
         if var model = try? JSONDecoder().decode(NewsDataModel.self, from: data) {
             for i in 0..<(model.articles?.count ?? 0) {
                 model.articles?[i].id = id
-                #warning("remove random read time")
-                model.articles?[i].readTime = (1...30).randomElement()
             }
             return model.articles
         }

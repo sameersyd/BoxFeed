@@ -28,25 +28,40 @@ struct NewsModelView: View {
                     .foregroundColor(.text_primary)
                     .modifier(FontModifier(.bold, size: 14))
                 HStack(alignment: .center, spacing: 12) {
-                    newsData(image: Image.calender, text: model.publishedDate ?? "")
-                    if let time = model.readTime {
-                        newsData(image: Image.clock, text: "\(time < 10 ? "0" : "")\(time)m")
+                    if let date = model.publishedDate {
+                        publishedDate(date)
+                    }
+                    if let author = model.author {
+                        authorView(author)
                     }
                 }
             }
-            
-            Spacer()
         }
     }
     
-    private func newsData(image: Image, text: String) -> some View {
+    private func publishedDate(_ date: String) -> some View {
         HStack(alignment: .center, spacing: 8) {
-            image.resizable()
+            Image.calender.resizable()
                 .renderingMode(.template)
                 .foregroundColor(.text_primary)
-                .frame(width: 16, height: 16)
+                .frame(width: 17, height: 17)
                 .offset(x: 0, y: -1)
-            Text(text).lineLimit(1)
+            Text(date).lineLimit(1)
+                .foregroundColor(.text_primary)
+                .modifier(FontModifier(.bold, size: 12))
+                .layoutPriority(1)
+                .fixedSize(horizontal: true, vertical: false)
+        }
+    }
+    
+    private func authorView(_ author: String) -> some View {
+        HStack(alignment: .center, spacing: 8) {
+            Image.pen.resizable()
+                .renderingMode(.template)
+                .foregroundColor(.text_primary)
+                .frame(width: 17, height: 17)
+                .offset(x: 0, y: -1)
+            Text(author).lineLimit(1)
                 .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 12))
         }

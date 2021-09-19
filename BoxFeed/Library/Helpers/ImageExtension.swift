@@ -13,7 +13,7 @@ extension Image {
     static let article = Image("article")
     static let x = Image("x")
     static let calender = Image("calender")
-    static let clock = Image("clock")
+    static let pen = Image("pen")
     static let bookmark = Image("bookmark")
     static let bookmark_filled = Image("bookmark-filled")
 }

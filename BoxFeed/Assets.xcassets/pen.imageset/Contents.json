@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "clock-outline 2.png",
+      "filename" : "edit-2-outline 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "clock-outline 2@2x.png",
+      "filename" : "edit-2-outline 1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "clock-outline 2@3x.png",
+      "filename" : "edit-2-outline 1@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
