@@ -16,7 +16,6 @@ struct ArticleView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: ArticleCD.getAllArticles()) var articles: FetchedResults<ArticleCD>
     
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -47,6 +46,15 @@ extension ArticleView {
                 .foregroundColor(.text_primary.opacity(0.7))
                 .modifier(FontModifier(.regular, size: 16))
                 .frame(maxWidth: .infinity)
+            Button(action: viewModel.openNewsUrl) {
+                Text("READ MORE")
+                    .foregroundColor(.white)
+                    .modifier(FontModifier(.regular, size: 14))
+                    .frame(height: 45)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.text_primary)
+            }
+            .padding(.vertical, 12)
         }
     }
     
