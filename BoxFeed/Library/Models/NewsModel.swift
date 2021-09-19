@@ -27,8 +27,6 @@ struct NewsModel: Decodable {
     var publishedAt: String?
     var content: String?
     
-    var readTime: Int?
-    
     var publishedDate: String? {
         guard let date = publishedAt?.convertIntoDate() else { return "" }
         return date.format("MMM. dd, yyyy")

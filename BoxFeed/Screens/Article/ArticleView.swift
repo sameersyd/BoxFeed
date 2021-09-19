@@ -10,7 +10,11 @@ import SwiftUI
 struct ArticleView: View {
     
     @Environment(\.dismiss) var dismiss
-    var model: NewsModel
+    @StateObject var viewModel: ArticleViewModel
+    
+    // CoreData
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(fetchRequest: ArticleCD.getAllArticles()) var articles: FetchedResults<ArticleCD>
     
     var body: some View {
         NavigationView {
@@ -27,6 +31,9 @@ struct ArticleView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .onReceive(viewModel.$closePresenter) { close in
+            if close { dismiss() }
+        }
     }
 }
 
@@ -37,21 +44,30 @@ extension ArticleView {
     private var BodyView: some View {
         VStack(spacing: 16) {
             AuthorView
-            Text(model.content ?? "")
+            Text(viewModel.model.content ?? "")
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.text_primary.opacity(0.7))
                 .modifier(FontModifier(.regular, size: 16))
                 .frame(maxWidth: .infinity)
+            Button(action: viewModel.openNewsUrl) {
+                Text("READ MORE")
+                    .foregroundColor(.white)
+                    .modifier(FontModifier(.regular, size: 14))
+                    .frame(height: 45)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.text_primary)
+            }
+            .padding(.vertical, 12)
         }
     }
     
     private var AuthorView: some View {
         HStack(alignment: .center) {
-            Text(model.author ?? "")
+            Text(viewModel.model.author ?? "")
                 .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 16))
             Spacer()
-            Button(action: {  }) {
+            Button(action: viewModel.openNewsUrl) {
                 Image.article.resizable()
                     .renderingMode(.template)
                     .foregroundColor(.text_primary)
@@ -68,7 +84,7 @@ extension ArticleView {
     private func HeaderView(height: CGFloat) -> some View {
         GeometryReader { geo in
             ZStack {
-                AsyncImage(url: model.urlToImage) { image in
+                AsyncImage(url: viewModel.model.urlToImage) { image in
                     image.resizable().scaledToFill()
                 } placeholder: {
                     ZStack {
@@ -82,18 +98,19 @@ extension ArticleView {
                 
                 VStack(spacing: 0) {
                     HStack(alignment: .center) {
+                        Button(action: { viewModel.bookmarkArticle(articles, moc) }) {
+                            (viewModel.isBookmarked(articles) ? Image.bookmark_filled : Image.bookmark)
+                                .resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(.white)
+                                .frame(width: 20, height: 20)
+                        }
+                        Spacer()
                         Button(action: { dismiss() }) {
                             Image.x.resizable()
                                 .renderingMode(.template)
                                 .foregroundColor(.white)
                                 .frame(width: 26, height: 26)
-                        }
-                        Spacer()
-                        Button(action: {  }) {
-                            Image.bookmark_filled.resizable()
-                                .renderingMode(.template)
-                                .foregroundColor(.white)
-                                .frame(width: 20, height: 20)
                         }
                     }.padding(.horizontal, 20).padding(.vertical, 60)
                     
@@ -121,14 +138,14 @@ extension ArticleView {
     
     private var Header_DataView: some View {
         VStack(spacing: 20) {
-            Text(model.title ?? "").lineLimit(3)
+            Text(viewModel.model.title ?? "").lineLimit(3)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .modifier(FontModifier(.bold, size: 32))
                 .frame(maxWidth: .infinity)
             
             HStack(alignment: .center) {
-                Text(model.id?.name ?? "Unknown").foregroundColor(.white)
+                Text(viewModel.model.id?.name ?? "Unknown").foregroundColor(.white)
                     .modifier(FontModifier(.extraBold, size: 12))
                 Spacer()
                 HStack(alignment: .bottom, spacing: 8) {
@@ -136,7 +153,7 @@ extension ArticleView {
                         .renderingMode(.template)
                         .foregroundColor(.white)
                         .frame(width: 16, height: 16)
-                    Text(model.publishedDate ?? "")
+                    Text(viewModel.model.publishedDate ?? "")
                         .foregroundColor(.white)
                         .modifier(FontModifier(.bold, size: 12))
                         .padding(.bottom, -2)

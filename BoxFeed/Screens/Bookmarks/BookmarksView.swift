@@ -1,16 +1,16 @@
 //
-//  HomeView.swift
+//  BookmarksView.swift
 //  BoxFeed
 //
-//  Created by Sameer Nawaz on 07/07/21.
+//  Created by Sameer Nawaz on 18/09/21.
 //
 
 import SwiftUI
-import CoreData
 
-struct HomeView: View {
+struct BookmarksView: View {
     
-    @StateObject private var viewModel = HomeViewModel()
+    @Environment(\.dismiss) var dismiss
+    @StateObject private var viewModel = BookmarksViewModel()
     // CoreData
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(fetchRequest: ArticleCD.getAllArticles()) var articles: FetchedResults<ArticleCD>
@@ -22,29 +22,21 @@ struct HomeView: View {
                 
                 VStack(spacing: 0) {
                     headerView
-                    NewsSelectorView(selection: $viewModel.selection)
-                        .padding(.top, 24)
-                    
                     List {
-                        ForEach(0..<viewModel.news.count, id: \.self) { i in
-                            Button(action: { viewModel.selectArticle(index: i) }) {
-                                NewsModelView(model: viewModel.news[i])
+                        ForEach(articles) { article in
+                            Button(action: { viewModel.selectArticle(article) }) {
+                                NewsModelView(model: viewModel.getNewsModel(article))
                                     .padding(.vertical, 4)
-                                    .padding(.top, i == 0 ? 12 : 0)
                                     .listRowSeparator(.hidden)
                             }.swipeActions {
                                 Button(action: {
-                                    viewModel.bookmarkArticle(viewModel.news[i], articles, moc)
+                                    viewModel.removeBookmark(article, moc)
                                 }) {
-                                    Image(systemName: viewModel.isBookmarked(viewModel.news[i], articles)
-                                          ? "bookmark" : "bookmark.fill")
+                                    Image(systemName: "bookmark")
                                 }
                                 .tint(.main_color)
                             }
                         }
-                    }
-                    .refreshable {
-                        await viewModel.fetchNews()
                     }
                     
                     Spacer()
@@ -53,11 +45,8 @@ struct HomeView: View {
                 .fullScreenCover(isPresented: $viewModel.showArticle,
                                  onDismiss: { viewModel.selectedArticle = nil }) {
                     if let article = viewModel.selectedArticle {
-                        ArticleView(viewModel: ArticleViewModel(model: article))
+                        ArticleView(viewModel: ArticleViewModel(model: viewModel.getNewsModel(article)))
                     }
-                }
-                .fullScreenCover(isPresented: $viewModel.openBookmarks) {
-                    BookmarksView()
                 }
             }
             .navigationBarHidden(true)
@@ -68,16 +57,17 @@ struct HomeView: View {
     }
     
     private var headerView: some View {
-        HStack(alignment: .center) {
-            Text("Breaking News").foregroundColor(.main_color)
+        HStack {
+            Text("Bookmarks")
+                .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 32))
             Spacer()
-            Button(action: { viewModel.openBookmarks = true }) {
-                Image.bookmark.resizable()
+            Button(action: { dismiss() }) {
+                Image.x.resizable()
                     .renderingMode(.template)
-                    .foregroundColor(.black)
-                    .frame(width: 22, height: 22)
+                    .foregroundColor(.text_primary)
+                    .frame(width: 26, height: 26)
             }
-        }.padding(.horizontal, 16)
+        }.padding(.horizontal, 20)
     }
 }
