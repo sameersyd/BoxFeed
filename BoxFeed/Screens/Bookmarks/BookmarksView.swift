@@ -22,9 +22,32 @@ struct BookmarksView: View {
                 
                 VStack(spacing: 0) {
                     headerView
+                    List {
+                        ForEach(articles) { article in
+                            Button(action: { viewModel.selectArticle(article) }) {
+                                NewsModelView(model: viewModel.getNewsModel(article))
+                                    .padding(.vertical, 4)
+                                    .listRowSeparator(.hidden)
+                            }.swipeActions {
+                                Button(action: {
+                                    viewModel.removeBookmark(article, moc)
+                                }) {
+                                    Image(systemName: "bookmark")
+                                }
+                                .tint(.main_color)
+                            }
+                        }
+                    }
+                    
                     Spacer()
                 }
                 .edgesIgnoringSafeArea(.bottom)
+                .fullScreenCover(isPresented: $viewModel.showArticle,
+                                 onDismiss: { viewModel.selectedArticle = nil }) {
+                    if let article = viewModel.selectedArticle {
+                        ArticleView(model: viewModel.getNewsModel(article))
+                    }
+                }
             }
             .navigationBarHidden(true)
         }
