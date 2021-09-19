@@ -31,6 +31,9 @@ struct ArticleView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .onReceive(viewModel.$closePresenter) { close in
+            if close { dismiss() }
+        }
     }
 }
 

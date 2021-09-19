@@ -11,9 +11,11 @@ import CoreData
 class ArticleViewModel: ObservableObject {
     
     let model: NewsModel
+    @Published var closePresenter = false
     
     init(model: NewsModel) {
         self.model = model
+        if model.url == nil { closePresenter = true }
     }
     
     func openNewsUrl() {
