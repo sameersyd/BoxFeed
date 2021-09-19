@@ -12,6 +12,11 @@ struct ArticleView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ArticleViewModel
     
+    // CoreData
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(fetchRequest: ArticleCD.getAllArticles()) var articles: FetchedResults<ArticleCD>
+    
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -82,8 +87,9 @@ extension ArticleView {
                 
                 VStack(spacing: 0) {
                     HStack(alignment: .center) {
-                        Button(action: {  }) {
-                            Image.bookmark_filled.resizable()
+                        Button(action: { viewModel.bookmarkArticle(articles, moc) }) {
+                            (viewModel.isBookmarked(articles) ? Image.bookmark_filled : Image.bookmark)
+                                .resizable()
                                 .renderingMode(.template)
                                 .foregroundColor(.white)
                                 .frame(width: 20, height: 20)
