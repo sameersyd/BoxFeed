@@ -16,6 +16,12 @@ class ArticleViewModel: ObservableObject {
         self.model = model
     }
     
+    func openNewsUrl() {
+        if let url = model.url {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     func isBookmarked(_ articles: FetchedResults<ArticleCD>) -> Bool {
         for article in articles {
             if article.url == model.url?.absoluteString {

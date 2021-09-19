@@ -56,7 +56,7 @@ extension ArticleView {
                 .foregroundColor(.text_primary)
                 .modifier(FontModifier(.bold, size: 16))
             Spacer()
-            Button(action: {  }) {
+            Button(action: viewModel.openNewsUrl) {
                 Image.article.resizable()
                     .renderingMode(.template)
                     .foregroundColor(.text_primary)
