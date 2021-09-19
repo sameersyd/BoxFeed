@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73056CE726F6BF4E00DD94BA /* ArticleCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73056CE626F6BF4E00DD94BA /* ArticleCD.swift */; };
 		732E1D59269620970085F136 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D58269620970085F136 /* Config.swift */; };
 		732E1D5F269621C10085F136 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D5E269621C10085F136 /* HomeViewModel.swift */; };
 		732E1D612696222A0085F136 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732E1D602696222A0085F136 /* HomeView.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73056CE626F6BF4E00DD94BA /* ArticleCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCD.swift; sourceTree = "<group>"; };
 		732E1D58269620970085F136 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		732E1D5E269621C10085F136 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		732E1D602696222A0085F136 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		7312871026F67E780060DBE0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				73056CE626F6BF4E00DD94BA /* ArticleCD.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		731DB92B26F43FAB004D9B27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		731DB92C26F43FCC004D9B27 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7312871026F67E780060DBE0 /* CoreData */,
 				736C8EE126F5B3250053CC8F /* Services */,
 				73D48CEB26938A8F0044A5CC /* Helpers */,
 				730692922697A6BD008482DE /* CustomViews */,
@@ -284,6 +295,7 @@
 				73D48CFE269397C10044A5CC /* NewsModel.swift in Sources */,
 				736C8EE726F5B8ED0053CC8F /* Extensions.swift in Sources */,
 				736C8EE326F5B34A0053CC8F /* NewsService.swift in Sources */,
+				73056CE726F6BF4E00DD94BA /* ArticleCD.swift in Sources */,
 				737FE37E2697B0BF00A33EB7 /* ActivityIndicator.swift in Sources */,
 				73D48CE3269387EA0044A5CC /* BoxFeed.xcdatamodeld in Sources */,
 				732E1D59269620970085F136 /* Config.swift in Sources */,
