@@ -24,6 +24,13 @@ Home | Article | Bookmarks
 
 <br />
 
+## Note
+Once you clone the repo,
+- Add your own API key from [News API](https://newsapi.org) in [AppConfig file](https://github.com/sameersyd/BoxFeed/blob/5b05981c0b476b7bd6c190134aa563e17143c933/BoxFeed/Config.swift#L16)
+- Checkout your current plan. The [News API](https://newsapi.org) has limit for developer plan on dates query and content chars
+
+<br />
+
 ## Built With 🛠
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/) - SwiftUI is an innovative, exceptionally simple way to build user interfaces across all Apple platforms with the power of Swift.
 - [CoreData](https://developer.apple.com/documentation/coredata) - Framework used to manage the model layer objects in the application.
