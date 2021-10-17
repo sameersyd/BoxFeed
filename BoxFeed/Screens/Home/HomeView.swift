@@ -22,32 +22,8 @@ struct HomeView: View {
                 
                 VStack(spacing: 0) {
                     headerView
-                    NewsSelectorView(selection: $viewModel.selection)
-                        .padding(.top, 24)
-                    
-                    List {
-                        ForEach(0..<viewModel.news.count, id: \.self) { i in
-                            Button(action: { viewModel.selectArticle(index: i) }) {
-                                NewsModelView(model: viewModel.news[i])
-                                    .padding(.vertical, 4)
-                                    .padding(.top, i == 0 ? 12 : 0)
-                                    .listRowSeparator(.hidden)
-                            }.swipeActions {
-                                Button(action: {
-                                    viewModel.bookmarkArticle(viewModel.news[i], articles, moc)
-                                }) {
-                                    Image(systemName: viewModel.isBookmarked(viewModel.news[i], articles)
-                                          ? "bookmark" : "bookmark.fill")
-                                }
-                                .tint(.main_color)
-                            }
-                        }
-                    }
-                    .refreshable {
-                        await viewModel.fetchNews()
-                    }
-                    
-                    Spacer()
+                    if viewModel.isOffline { offlineView }
+                    else { content }
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .fullScreenCover(isPresented: $viewModel.showArticle,
@@ -72,12 +48,66 @@ struct HomeView: View {
             Text("Breaking News").foregroundColor(.main_color)
                 .modifier(FontModifier(.bold, size: 32))
             Spacer()
-            Button(action: { viewModel.openBookmarks = true }) {
-                Image.bookmark.resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(.black)
-                    .frame(width: 22, height: 22)
+            if !viewModel.isOffline {
+                Button(action: { viewModel.openBookmarks = true }) {
+                    Image.bookmark.resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.black)
+                        .frame(width: 22, height: 22)
+                }
             }
         }.padding(.horizontal, 16)
+    }
+
+    private var content: some View {
+        VStack(spacing: 0) {
+            NewsSelectorView(selection: $viewModel.selection)
+                .padding(.top, 24)
+            List {
+                ForEach(0..<viewModel.news.count, id: \.self) { i in
+                    Button(action: { viewModel.selectArticle(index: i) }) {
+                        NewsModelView(model: viewModel.news[i])
+                            .padding(.vertical, 4)
+                            .padding(.top, i == 0 ? 12 : 0)
+                            .listRowSeparator(.hidden)
+                    }.swipeActions {
+                        Button(action: {
+                            viewModel.bookmarkArticle(viewModel.news[i], articles, moc)
+                        }) {
+                            Image(systemName: viewModel.isBookmarked(viewModel.news[i], articles)
+                                  ? "bookmark" : "bookmark.fill")
+                        }.tint(.main_color)
+                    }
+                }
+            }.refreshable { await viewModel.fetchNews() }
+            Spacer()
+        }
+    }
+
+    private var offlineView: some View {
+        VStack(alignment: .center, spacing: 0) {
+            Image.offline.frame(maxWidth: .infinity)
+                .padding(.top, 100)
+            Text("Looks like you’re offline. No problem checkout bookmarks")
+                .foregroundColor(.text_primary)
+                .modifier(FontModifier(.regular, size: 16))
+                .multilineTextAlignment(.center)
+                .padding(.top, 26)
+
+            Button(action: { viewModel.openBookmarks = true }) {
+                Text("Bookmarks").foregroundColor(.white)
+                    .modifier(FontModifier(.bold, size: 14))
+                    .frame(maxWidth: .infinity).frame(height: 45)
+                    .background(Color.text_primary)
+                    .padding(.horizontal, 8)
+            }.padding(.top, 50)
+
+            Button(action: { viewModel.checkInternet() }) {
+                Text("Retry").foregroundColor(.text_primary)
+                    .modifier(FontModifier(.bold, size: 14))
+            }.padding(.top, 16)
+            Spacer()
+        }
+        .padding(.horizontal, 20)
     }
 }
