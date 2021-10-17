@@ -102,7 +102,7 @@ struct HomeView: View {
                     .padding(.horizontal, 8)
             }.padding(.top, 50)
 
-            Button(action: {  }) {
+            Button(action: { viewModel.checkInternet() }) {
                 Text("Retry").foregroundColor(.text_primary)
                     .modifier(FontModifier(.bold, size: 14))
             }.padding(.top, 16)

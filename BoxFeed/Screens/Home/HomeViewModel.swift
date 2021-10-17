@@ -23,9 +23,14 @@ class HomeViewModel: ObservableObject {
     @Published var selectedArticle: NewsModel? = nil
     
     let service = NewsService()
-    @Published var isOffline = false
+    @Published private(set) var isOffline = false
     
     init() {
+        checkInternet()
+    }
+
+    func checkInternet() {
+        isOffline = !Reachability.isConnectedToNetwork()
         async { await fetchNews() }
     }
     
