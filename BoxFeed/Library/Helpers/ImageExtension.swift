@@ -16,4 +16,6 @@ extension Image {
     static let pen = Image("pen")
     static let bookmark = Image("bookmark")
     static let bookmark_filled = Image("bookmark-filled")
+    
+    static let offline = Image("offline")
 }

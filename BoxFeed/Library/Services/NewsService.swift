@@ -13,7 +13,7 @@ final class NewsService {
         
         // Adjust the below URL date(from) depending on your API plan
         // For free tires, there's a limit from which date they can request
-        let urlString = "https://newsapi.org/v2/everything?q=\(id)&from=2021-08-19&sortBy=publishedAt&apiKey=\(AppConfig.API_KEY)"
+        let urlString = "https://newsapi.org/v2/everything?q=\(id)&from=2021-09-17&sortBy=publishedAt&apiKey=\(AppConfig.API_KEY)"
         guard let url = URL(string: urlString) else { return nil }
         
         let (data, _) = try await URLSession.shared.data(from: url)
