@@ -23,6 +23,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedArticle: NewsModel? = nil
     
     let service = NewsService()
+    @Published var isOffline = false
     
     init() {
         async { await fetchNews() }
