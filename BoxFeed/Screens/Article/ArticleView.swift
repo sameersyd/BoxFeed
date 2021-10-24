@@ -51,11 +51,11 @@ extension ArticleView {
                 .frame(maxWidth: .infinity)
             Button(action: viewModel.openNewsUrl) {
                 Text("READ MORE")
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary_color)
                     .modifier(FontModifier(.regular, size: 14))
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
-                    .background(Color.text_primary)
+                    .background(Color.main_color)
             }
             .padding(.vertical, 12)
         }

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension Color {
     
-    static let main_color = Color.black
-    static let primary_color = Color.white
-    static let text_primary = Color.black
+    static let main_color = Color.primary
+    static let primary_color = Color(UIColor.systemBackground)
+    static let text_primary = Color(UIColor.label)
     
     init(hex: String, alpha: Double = 1) {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
