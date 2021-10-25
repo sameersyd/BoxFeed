@@ -52,6 +52,7 @@ struct HomeView: View {
                 Button(action: { viewModel.openBookmarks = true }) {
                     Image.bookmark.resizable()
                         .renderingMode(.template)
+                        .foregroundColor(.black)
                         .foregroundColor(.main_color)
                         .frame(width: 22, height: 22)
                 }
