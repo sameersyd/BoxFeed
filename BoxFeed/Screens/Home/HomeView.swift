@@ -53,6 +53,7 @@ struct HomeView: View {
                     Image.bookmark.resizable()
                         .renderingMode(.template)
                         .foregroundColor(.black)
+                        .foregroundColor(.main_color)
                         .frame(width: 22, height: 22)
                 }
             }
@@ -95,10 +96,10 @@ struct HomeView: View {
                 .padding(.top, 26)
 
             Button(action: { viewModel.openBookmarks = true }) {
-                Text("Bookmarks").foregroundColor(.white)
+                Text("Bookmarks").foregroundColor(.primary_color)
                     .modifier(FontModifier(.bold, size: 14))
                     .frame(maxWidth: .infinity).frame(height: 45)
-                    .background(Color.text_primary)
+                    .background(Color.main_color)
                     .padding(.horizontal, 8)
             }.padding(.top, 50)
 
