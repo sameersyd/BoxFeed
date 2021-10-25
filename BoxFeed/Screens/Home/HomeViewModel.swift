@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Network
 
 @MainActor
 class HomeViewModel: ObservableObject {
@@ -25,13 +26,17 @@ class HomeViewModel: ObservableObject {
     let service = NewsService()
     @Published private(set) var isOffline = false
     
-    init() {
-        checkInternet()
-    }
+    init() { checkInternet() }
 
     func checkInternet() {
-        isOffline = !Reachability.isConnectedToNetwork()
-        async { await fetchNews() }
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { [weak self] path in
+            guard let self = self else { return }
+            self.isOffline = path.status != .satisfied
+            if !self.isOffline { async { await self.fetchNews() } }
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
     }
     
     func fetchNews() async {
